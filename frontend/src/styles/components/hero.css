@@ -1,0 +1,74 @@
+/* repo-ui/frontend/src/styles/components/hero.css */
+
+.hero-main {
+  max-width: 900px;
+  margin: 32px auto 0;
+  text-align: center;
+}
+
+.hero-description {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--muted);
+  max-width: 65ch;
+  margin: 0 auto 26px;
+}
+
+.stats {
+  margin: 32px auto 0;
+}
+
+.search {
+  margin: 32px auto 0;
+}
+
+.hero-aside {
+  background: var(--surface);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-top: 32px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-aside .cta-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background-color: var(--card);
+  border-radius: 12px;
+  color: var(--brand);
+  margin-bottom: 16px;
+}
+
+.hero-aside h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 8px;
+  color: var(--text);
+}
+
+.hero-aside p {
+  font-size: 16px;
+  color: var(--muted);
+  margin-bottom: 24px;
+  max-width: 60ch;
+}
+
+.hero-aside .btn {
+  width: auto;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 700;
+  background: var(--brand);
+  color: var(--bg);
+}
+
+.hero-aside .btn:hover {
+  background: #78c1ff;
+}

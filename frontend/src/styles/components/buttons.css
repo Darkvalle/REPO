@@ -1,0 +1,19 @@
+/* repo-ui/frontend/src/styles/components/buttons.css */
+.btn {
+  appearance: none; border: 1px solid var(--card-border); background: var(--card); color: var(--text);
+  padding: 8px 14px; border-radius: 12px; font-weight: 600; cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center;
+  transition: all .1s ease;
+}
+.btn:hover { border-color: var(--brand); }
+.btn.primary { background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: #0b1020; border: none; }
+
+.header-cta .btn-clean {
+  background: transparent;
+  border-color: transparent;
+  color: var(--muted);
+  gap: 8px;
+}
+.header-cta .btn-clean:hover { background: var(--surface); color: var(--text); }
+.header-cta .btn-clean.primary { color: var(--brand); font-weight: 700; }
+.header-cta .btn-clean.primary:hover { color: var(--brand-2); }

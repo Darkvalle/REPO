@@ -1,0 +1,35 @@
+/* repo-ui/frontend/src/styles/pages/forum.css */
+.forum-container { display: flex; flex-direction: column; gap: 14px; }
+.topic-card {
+  display: flex; gap: 16px; background: var(--card);
+  border: 1px solid var(--card-border); border-radius: var(--radius);
+  padding: 16px; align-items: center;
+}
+.topic-votes {
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  padding: 8px; background: var(--surface); border-radius: 12px;
+}
+.topic-votes button {
+  background: none; border: none; color: var(--muted);
+  cursor: pointer; padding: 4px; border-radius: 50%;
+}
+.topic-votes button:hover { color: var(--brand); background-color: var(--card-border); }
+.topic-votes span { font-weight: 700; font-size: 18px; }
+.topic-content { flex-grow: 1; }
+.topic-title { font-size: 18px; font-weight: 600; display: block; margin-bottom: 6px; }
+.topic-title:hover { text-decoration: underline; color: var(--brand); }
+.topic-meta { font-size: 14px; color: var(--muted); display: flex; gap: 8px; margin-bottom: 10px; }
+.topic-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+.tag {
+  background-color: var(--surface); color: var(--muted); padding: 4px 10px;
+  border-radius: 20px; font-size: 12px; font-weight: 500;
+}
+.topic-action {
+  margin-left: auto; padding: 12px 16px; border: 1px solid var(--card-border);
+  border-radius: 12px; display: flex; align-items: center; gap: 10px;
+  font-weight: 600; transition: all 0.1s ease; color: var(--muted);
+}
+.topic-action:hover {
+  border-color: var(--brand-2); color: var(--text);
+  background-color: color-mix(in srgb, var(--surface) 50%, var(--brand-2));
+}

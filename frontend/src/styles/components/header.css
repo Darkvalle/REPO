@@ -1,0 +1,43 @@
+/* repo-ui/frontend/src/styles/components/header.css */
+.header {
+  position: sticky; top: 0; z-index: 50;
+  backdrop-filter: blur(6px);
+  background: color-mix(in oklab, var(--bg) 85%, transparent);
+  border-bottom: 1px solid var(--card-border);
+}
+.header-inner { display: flex; align-items: center; gap: 16px; width: min(1200px, 92vw); margin: 0 auto; padding: 12px 0; }
+.logo { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: .2px; }
+.logo img { width: 70px; height: 62x; }
+.logo span {
+  font-family: 'Big Shoulders Stencil Text', sans-serif;
+  font-weight: 900;
+  font-size: 28px;
+  letter-spacing: 2.5px;
+  color: #92ffff;
+}
+.nav { margin-left: 12px; display: flex; gap: 14px; flex-wrap: wrap; }
+.nav a { padding: 8px 10px; border-radius: 10px; color: var(--muted); font-weight: 500; }
+.nav a[aria-current="page"], .nav a.active { background: var(--surface); color: var(--text); }
+.header-cta { margin-left: auto; display: flex; gap: 10px; align-items: center; }
+
+.auth-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: 8px;
+}
+.auth-links a:last-child {
+  position: relative;
+  margin-left: 12px;
+}
+.auth-links a:last-child::before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 16px;
+  background-color: var(--card-border);
+}

@@ -1,0 +1,13 @@
+/* repo-ui/frontend/src/styles/_variables.css */
+:root {
+  --bg: #0f1115;
+  --surface: #151922;
+  --muted: #8b90a3;
+  --text: #e7e9ee;
+  --brand: #58a6ff;
+  --brand-2: #96e6a1;
+  --card: #171b24;
+  --card-border: #222838;
+  --focus: #ffd166;
+  --radius: 16px;
+}

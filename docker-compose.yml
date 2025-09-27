@@ -1,0 +1,71 @@
+# Versão do Docker Compose
+version: '3.9'
+
+# Definição dos nossos serviços (contentores)
+services:
+
+  # 1. Serviço do Banco de Dados (MariaDB)
+# 1. Serviço do Banco de Dados (MariaDB)
+  db:
+    image: mariadb:11
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: 'password'
+      MARIADB_ROOT_HOST: '%'  # <-- A LINHA ESSENCIAL QUE FALTAVA
+      MARIADB_DATABASE: 'repo_db'
+      MARIADB_USER: 'repo_user'
+      MARIADB_PASSWORD: 'password'
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - repo_network
+
+  # 2. Serviço do Back-end (PHP/Laravel)
+  backend:
+    build:
+      context: ./backend # Aponta para a pasta do back-end
+    volumes:
+      - ./backend:/var/www/html
+    networks:
+      - repo_network
+    depends_on:
+      - db # Garante que o back-end só inicia depois do banco de dados
+
+  # 3. Serviço do Front-end (React/Vite)
+  frontend:
+    build:
+      context: ./frontend # Aponta para a pasta do front-end
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules # Otimização para não sobreescrever node_modules
+    ports:
+      - "5173:5173" # Expõe a porta do Vite para debugging se necessário
+    networks:
+      - repo_network
+    environment:
+      - CHOKIDAR_USEPOLLING=true # Ajuda o Vite a detetar mudanças de ficheiros dentro do Docker
+
+  # 4. Servidor Web/Proxy Reverso (Nginx)
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80" # A porta principal de acesso à aplicação
+    volumes:
+      - ./backend:/var/www/html
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf # Ficheiro de configuração que vamos criar
+    networks:
+      - repo_network
+    depends_on:
+      - backend
+      - frontend
+
+# Volumes para persistir os dados do banco de dados
+volumes:
+  db_data:
+
+# Rede para os contentores se comunicarem
+networks:
+  repo_network:
+    driver: bridge

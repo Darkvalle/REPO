@@ -1,0 +1,22 @@
+/* repo-ui/frontend/src/styles/components/stats.css */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 14px; /* Espaçamento entre os cards de estatísticas */
+  width: 100%;
+  margin: 32px auto 0;
+}
+.stat {
+  background: var(--surface);
+  padding: 12px 14px;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+}
+.stat .k { /* Renomeei para ser mais genérico que 'k' */
+  font-weight: 800;
+  font-size: 18px;
+}
+.stat .label {
+  font-size: 13px;
+  color: var(--muted);
+}

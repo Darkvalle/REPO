@@ -1,0 +1,20 @@
+/* repo-ui/frontend/src/styles/pages/repositorio.css */
+.page-header { margin-bottom: 24px; }
+.file-list-container {
+  background: var(--surface); border: 1px solid var(--card-border);
+  border-radius: var(--radius); overflow: hidden;
+}
+.file-list-header, .file-list-item {
+  display: grid; grid-template-columns: 3fr 1fr 1fr 1fr;
+  align-items: center; gap: 16px; padding: 12px 16px;
+}
+.file-list-header {
+  font-weight: 600; color: var(--muted); font-size: 14px;
+  border-bottom: 1px solid var(--card-border); text-transform: uppercase; letter-spacing: 0.5px;
+}
+.file-list-item { border-bottom: 1px solid var(--card-border); transition: background-color 0.1s ease; }
+.file-list-item:last-child { border-bottom: none; }
+.file-list-item:hover { background-color: color-mix(in srgb, var(--surface) 80%, var(--brand)); }
+.file-list-item .file-name { display: flex; align-items: center; gap: 12px; font-weight: 500; }
+.file-list-item .file-name svg { color: var(--brand); flex-shrink: 0; }
+.file-owner, .file-modified, .file-size { color: var(--muted); font-size: 15px; }

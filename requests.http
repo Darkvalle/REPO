@@ -1,0 +1,16 @@
+### -------------------------------------------
+### API do Repositório (REPO) - Testes
+### -------------------------------------------
+
+# @name criarFicheiro
+# Testa a criação de um novo ficheiro.
+
+POST http://localhost/api/files
+Content-Type: application/json
+Accept: application/json
+
+{
+  "title": "Documento de Teste para o TCC",
+  "description": "Este é um teste para a API de criação de ficheiros do projeto REPO.",
+  "user_id": 1
+}

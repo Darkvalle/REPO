@@ -1,0 +1,17 @@
+/* repo-ui/frontend/src/styles/pages/auth.css */
+.auth-form-container { max-width: 420px; margin: 40px auto; text-align: center; }
+.auth-header { margin-bottom: 32px; }
+.auth-header h2 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+.auth-header p { color: var(--muted); font-size: 16px; }
+.auth-icon { color: var(--brand); margin: 0 auto 16px; }
+.auth-form { display: flex; flex-direction: column; gap: 16px; }
+.form-group { text-align: left; }
+.form-group label { display: block; font-weight: 600; margin-bottom: 8px; font-size: 14px; }
+.form-group input {
+  width: 100%; padding: 12px 14px; background: var(--surface);
+  border: 1px solid var(--card-border); border-radius: 12px; font-size: 16px; color: var(--text);
+}
+.form-group input::placeholder { color: color-mix(in srgb, var(--muted) 60%, transparent); }
+.auth-button { width: 100%; padding: 14px; font-size: 16px; margin-top: 8px; }
+.auth-footer { margin-top: 24px; color: var(--muted); }
+.auth-footer a { font-weight: 600; color: var(--brand-2); text-decoration: underline; text-underline-offset: 4px; }
