@@ -10,21 +10,22 @@ class File extends Model
 {
     use HasFactory;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
     protected $fillable = [
         'user_id',
         'title',
         'description',
-        'is_public',
+        'file_name',
+        'file_path',
+        'file_type',
+        'file_size',
+        'tags',
     ];
 
-    /**
-     * Get the user that owns the file.
-     */
+    protected $casts = [
+        'tags' => 'array',
+        'file_size' => 'integer',
+    ];
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

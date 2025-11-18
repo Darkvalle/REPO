@@ -2,28 +2,46 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FileController;
-
-// Adicione esta linha para registar a rota para o nosso FileController
-Route::apiResource('files', FileController::class);
+use App\Http\Controllers\StatsController;
 
 /*
 |--------------------------------------------------------------------------
 | API Routes
 |--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
-|
+| Todas as rotas da API passam por aqui.
 */
 
-Route::get('/user', function (Request $request) {
+// rota pra pegar o usuário autenticado (via Sanctum)
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
-})->middleware('auth:sanctum');
+});
 
-use App\Http\Controllers\StatsController; // Adicione esta linha no topo do arquivo, junto aos outros 'use'
+// ---------- AUTENTICAÇÃO ----------
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
 
-// ... outras rotas ...
+// ---------- ESTATÍSTICAS ----------
+Route::get('/stats', [StatsController::class, 'index']);
 
-Route::get('/stats', [StatsController::class, 'index']); // Adicione esta linha no final
+// ---------- ARQUIVOS ----------
+// CRUD REST: GET /files, POST /files, GET /files/{id}, PUT/PATCH /files/{id}, DELETE /files/{id}
+Route::apiResource('files', FileController::class);
+
+// Download físico (GET /api/files/{id}/download)
+Route::get('/files/{file}/download', [FileController::class, 'download']);
+
+
+// ---------- TESTE RÁPIDO ----------
+Route::get('/ping', function () {
+    return response()->json(['pong' => true]);
+});
+
+Route::post('/debug-test', function (Request $request) {
+    return response()->json([
+        'ok' => true,
+        'method' => $request->method(),
+        'path' => $request->path(),
+    ]);
+});
