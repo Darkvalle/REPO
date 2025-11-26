@@ -62,4 +62,5 @@ O REPO é um sistema completo de repositório digital, fórum de discussões e [
 ## Equipe (Os Blue Lock B)
 
 * **Darkvalle** - Desenvolvedor Full Stack
-* [Nome do Outro Membro] - [Função]
+* **Jason** - Desenvolvedor Back End
+* **Scar** - Desenvolvedor Front End
